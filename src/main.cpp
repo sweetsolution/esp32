@@ -1,10 +1,10 @@
 #include <Arduino.h>
 #include <string>
 
-int LED_BUILTIN = 2;
-int freq = 5000;
-int ledChannel = 0;
-int resolution = 8;
+const int LED_BUILTIN = 2;
+const int freq = 5000;
+const int ledChannel = 0;
+const int resolution = 8;
 
 
 void setup() {
