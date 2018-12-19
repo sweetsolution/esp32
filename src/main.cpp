@@ -18,12 +18,12 @@ void dimm()
 {
   for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle++) {
     ledcWrite(ledChannel, dutyCycle);
-    delay(7);
+    delay(5);
   }
  
   for (int dutyCycle = 255; dutyCycle >= 0; dutyCycle--) {
     ledcWrite(ledChannel, dutyCycle);
-    delay(7);
+    delay(5);
   }
 
 }
@@ -36,6 +36,6 @@ void loop() {
 
   Serial.println("Hello world!");
 
-  delay(1000);
+  delay(200);
 }
 
