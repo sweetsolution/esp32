@@ -1,10 +1,14 @@
 #include <Arduino.h>
 #include <string>
+#include <EEPROM.h>
+#include <list>
 
 const int LED_BUILTIN = 2;
 const int freq = 5000;
 const int ledChannel = 0;
 const int resolution = 8;
+std::list<int> myList = { 7, 5, 16, 8 };
+
 
 
 // LED fading table from https://www.mikrocontroller.net/articles/LED-Fading
@@ -19,6 +23,7 @@ void setup() {
   Serial.begin(9600);
   ledcSetup(ledChannel, freq, resolution);
   ledcAttachPin(LED_BUILTIN, ledChannel);
+  EEPROM.begin(1);
 }
 
 
@@ -44,5 +49,19 @@ void loop() {
 
   Serial.println("Hello world!");
 
+
+  auto memory = EEPROM.read(0);
+
+  String result = "Read from 0:";
+
+  Serial.print(result);
+  Serial.println(memory);
   delay(200);
+
+
+for (auto const& i : myList) {
+    Serial.println(i);
+}
+
+
 }
